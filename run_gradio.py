@@ -43,21 +43,27 @@ in_channels_controlnet = 4
 noise_scheduler = DDIMScheduler.from_pretrained(pretrained_model_name_or_path,subfolder='scheduler')
 vae = AutoencoderKL.from_pretrained(
     pretrained_model_name_or_path,
-    subfolder='vae'
+    subfolder='vae',
+    use_safetensors=True,
+    variant="fp16",
 )
 
 denoising_unet = UNet2DConditionModel.from_pretrained(
     pretrained_model_name_or_path,subfolder="unet",
     in_channels=in_channels_denoising_unet,
     low_cpu_mem_usage=False,
-    ignore_mismatched_sizes=True
+    ignore_mismatched_sizes=True,
+    use_safetensors=True,
+    variant="fp16",
 )
         
 reference_unet = RefUNet2DConditionModel.from_pretrained(
     pretrained_model_name_or_path,subfolder="unet",
     in_channels=in_channels_reference_unet,
     low_cpu_mem_usage=False,
-    ignore_mismatched_sizes=True
+    ignore_mismatched_sizes=True,
+    use_safetensors=True,
+    variant="fp16",
 )
 refnet_tokenizer = CLIPTokenizer.from_pretrained(refnet_clip_vision_encoder_path)
 refnet_text_encoder = CLIPTextModel.from_pretrained(refnet_clip_vision_encoder_path)
@@ -67,7 +73,8 @@ controlnet = ControlNetModel.from_pretrained(
     controlnet_model_name_or_path,
     in_channels=in_channels_controlnet,
     low_cpu_mem_usage=False,
-    ignore_mismatched_sizes=True
+    ignore_mismatched_sizes=True,
+    variant="fp16",
 )
 controlnet_tokenizer = CLIPTokenizer.from_pretrained(controlnet_clip_vision_encoder_path)
 controlnet_text_encoder = CLIPTextModel.from_pretrained(controlnet_clip_vision_encoder_path)
@@ -378,4 +385,4 @@ with gr.Blocks() as demo:
                            outputs=[baseline_gallery]
     )
 
-demo.launch(server_name="0.0.0.0")
+demo.launch()
