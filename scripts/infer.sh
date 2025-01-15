@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 set -e
 set -x
-pretrained_model_name_or_path='./checkpointsStableDiffusion'
-image_encoder_path='./checkpointsmodels/clip-vit-large-patch14'
-controlnet_model_name_or_path='./checkpointsmodels/control_v11p_sd15_lineart'
-annotator_ckpts_path='./checkpointsmodels/Annotators'
+pretrained_model_name_or_path='./checkpoints/StableDiffusion'
+image_encoder_path='./checkpoints/models/clip-vit-large-patch14'
+controlnet_model_name_or_path='./checkpoints/models/control_v11p_sd15_lineart'
+annotator_ckpts_path='./checkpoints/models/Annotators'
 
 manga_reference_unet_path='./checkpoints/MangaNinjia/reference_unet.pth'
 manga_main_model_path='./checkpoints/MangaNinjia/denoising_unet.pth'
