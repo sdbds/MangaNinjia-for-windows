@@ -36,6 +36,7 @@ more complex tasks using point control. We hope that MangaNinja can accelerate t
 ![teaser](docs/teaser.gif)
 ## 📢 News
 * 2025-01-15: Inference code and paper are released.
+* 2025-01-16: MangaNinja is available on windows, 6G VRAM need Auto install and Download Model. Thanks @sdbds ! You can found it [here](https://github.com/sdbds/MangaNinjia-for-windows). 🔥
 * 🏃: We will open an issue area to investigate user needs and adjust the model accordingly. This includes more memory-efficient structures, data formats for line art (such as binary line art), and considering retraining MangaNinjia on a better foundation model (sd3,flux).
 
 ## 🛠️ Setup
